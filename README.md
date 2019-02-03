@@ -18,7 +18,7 @@
 
 ![img](ksohtml/wps6609.tmp.jpg) 
 
-###登录注册
+### 登录注册
 
 #### 注册
 
@@ -30,7 +30,7 @@
 
 注册完成后，可以直接选择登录。
 
-####登录页面
+#### 登录页面
 
 ![img](ksohtml/wps2D33.tmp.jpg) 
 
@@ -42,7 +42,7 @@
 
 ![img](ksohtml/wps2D45.tmp.jpg) 
 
-###辅导员管理界面
+### 辅导员管理界面
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-####添加学生信息
+#### 添加学生信息
 
 - 该界面可以对学生信息进行增加，修改，删除。若新增的学生未注册，则显示未注册。
 - 若学生已经注册，且进行过兼职，则可以点击历史兼职情况查看兼职。
@@ -61,19 +61,19 @@
 
 ![img](ksohtml/wps2D58.tmp.jpg) 
 
-####修改学生信息
+#### 修改学生信息
 
 ![img](ksohtml/wps2D69.tmp.png)![img](ksohtml/wps2D6A.tmp.jpg) 
 
-####删除
+#### 删除
 
 ![img](ksohtml/wps2D6B.tmp.png)![img](ksohtml/wps2D7C.tmp.jpg) 
 
-####查看兼职信息
+#### 查看兼职信息
 
 ![img](ksohtml/wps2D7D.tmp.png)![img](ksohtml/wps2D7E.tmp.jpg) 
 
-####查看兼职
+#### 查看兼职
 
 - 点击左侧的查看兼职即可查看兼职
 
@@ -83,7 +83,7 @@
 
 ![img](ksohtml/wps2D90.tmp.png)![img](ksohtml/wps2DA1.tmp.jpg) 
 
-## **介绍人管理**
+## 介绍人管理
 
 辅导员可对兼职介绍人管理
 
@@ -93,7 +93,7 @@
 
  
 
-###兼职介绍人
+### 兼职介绍人
 
 ####发布兼职
 
@@ -101,7 +101,7 @@
 
 该页面为发布的兼职历史信息，可以在该页面对兼职进行管理。
 
-####新增
+#### 新增
 
 ![img](ksohtml/wps2DB4.tmp.jpg) 
 
@@ -109,13 +109,13 @@
 
 - 点击新增按钮可发布兼职信息。
 
-####查看详情
+#### 查看详情
 
 ![img](ksohtml/wps2DC6.tmp.png)![img](ksohtml/wps2DC7.tmp.jpg) 
 
 ![img](ksohtml/wps2DC8.tmp.jpg) 
 
-####查看兼职人员
+#### 查看兼职人员
 
 ![img](ksohtml/wps2DD9.tmp.jpg) 
 
@@ -123,27 +123,27 @@
 
 点击变更状态可以选择是否同意学生兼职。
 
-###学生
+### 学生
 
-####兼职状况
+#### 兼职状况
 
 ![img](ksohtml/wps2DDB.tmp.jpg) 
 
 该页面显示的是学生已经申请的兼职。
 
-####查看详情
+#### 查看详情
 
 点击查看详情
 
 ![img](ksohtml/wps2DEB.tmp.jpg) 
 
-####评价
+#### 评价
 
 ![img](ksohtml/wps2DEC.tmp.png)![img](ksohtml/wps2DED.tmp.jpg) 
 
 - 可以为本次兼职进行评分。
 
-####查看兼职
+#### 查看兼职
 
 ![img](ksohtml/wps2DFE.tmp.jpg) 
 
