@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.example.demo.mapper.LoginDao">
+    <select id="getStudentPassword" resultType="java.util.Map">
+      select * from student
+      where account=#{username}
+
+    </select>
+  <select id="getIntroducerPassword" resultType="java.util.Map">
+      select * from introducer
+      where account=#{username}
+
+    </select>
+  <select id="getInstructorPassword" resultType="java.util.Map">
+      select * from instructor
+      where account=#{username}
+
+    </select>
+    <insert id="insertJieshaoren" parameterType="java.lang.String">
+        insert into introducer(IDnumber,name,position,account,password,status,score)
+        values (#{ID_nu},#{name},#{position},#{username},#{password},0,3)
+
+    </insert>
+    <select id="selectStu_nu" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(*) from  student where stu_nu =#{stu_nu}
+
+    </select>
+
+    <update id="registerStudent" >
+        update student
+        set  account=#{username},password=#{password},status=1
+        where
+        stu_nu=#{stu_nu}
+    </update>
+
+</mapper>
+

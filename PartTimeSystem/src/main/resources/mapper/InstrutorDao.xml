@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.example.demo.mapper.InstructorDao">
+  <select id="parttimeList2" resultType="com.example.demo.pojo.ParttimeStudent">
+        select a.Id Id ,a.parttime_name parttime_name,b.name name,a.location location,a.nu_of_people nu_of_people,a.phone phone,a.salary salary,a.status status,a.start_time start_time,a.end_time end_time,c.status status_stu,c.stu_id stu_id,c.stu_id account
+         from parttime a LEFT JOIN introducer b
+         on a.introducer_id = b.account LEFT JOIN (SELECT * FROM stu_parttime  WHERE stu_id=#{stu_nu}) c
+         on c.parttime_id = a.Id where a.status!=2 and a.status!=3
+    </select>
+  <update id="deleteParttime" parameterType="com.example.demo.pojo.ParttimePerson">
+    update parttime
+    <set>
+      <if test="status==0">status =1</if>
+      <if test="status==1">status =0</if>
+    </set>
+    where Id=#{Id}
+
+  </update>
+
+  <select id="selectIntroducer" resultType="com.example.demo.pojo.Introducer">
+    select * from introducer
+  </select>
+
+  <update id="changeIntroducerStatus" parameterType="com.example.demo.pojo.Introducer">
+    update introducer
+    <set>
+      <if test="status==0">status =1</if>
+      <if test="status==1">status =0</if>
+    </set>
+    where account=#{account}
+  </update>
+
+  <select id="selectStudent" resultType="com.example.demo.pojo.Student">
+    select * from student where instructor_id=#{account}
+  </select>
+  <select id="selectParttime" resultType="com.example.demo.pojo.Parttime">
+    SELECT  a.`status` status_stu ,b.`parttime_name`  parttime_name,c.`name` NAME,b.`location` location
+  FROM stu_parttime  a LEFT JOIN parttime b ON  a.`parttime_id`=b.`Id` LEFT JOIN introducer c ON c.`account`= b.`introducer_id`
+  WHERE stu_id=#{stu_nu}
+  </select>
+
+  <insert id="addStudent" parameterType="com.example.demo.pojo.Student">
+    insert into student(stu_nu,name,major,status,instructor_id)
+    values (#{stu_nu},#{name},#{major},0,#{instructor_id})
+  </insert>
+
+  <update id="editStudent" parameterType="com.example.demo.pojo.Student">
+    update student
+    set name=#{name} , major=#{major}
+    where stu_nu=#{stu_nu}
+  </update>
+
+  <delete id="deleteStudent" parameterType="java.lang.String">
+    delete from student
+    where stu_nu=#{stu_nu}
+
+  </delete>
+
+
+
+  </mapper>
+

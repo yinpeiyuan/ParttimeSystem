@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.example.demo.mapper.InterfaceParttimeDao">
+
+
+    <select id="getParttimeByIntroducer" parameterType="java.util.Map" resultType="com.example.demo.pojo.Parttime">
+      SELECT * FROM parttime WHERE introducer_id = #{account}
+    </select>
+
+    <select id="getPattimeDetail" parameterType="java.util.Map" resultType="com.example.demo.pojo.Parttime">
+        SELECT * From parttime where Id = #{Id}
+    </select>
+
+    <select id="getParttimePerson" parameterType="java.util.Map" resultType="com.example.demo.pojo.ParttimePerson">
+            SELECT a.name name,b.status status,b.stu_id stu_id,b.parttime_id parttime_id from  student a,stu_parttime b
+            where  a.stu_nu = b.stu_id and b.parttime_id = #{Id}
+
+    </select>
+
+    <insert id="addParttime"  parameterType="com.example.demo.pojo.Parttime">
+        insert into parttime(introducer_id, parttime_name,location, nu_of_people ,phone , salary , status ,start_time , end_time )
+        VALUES (#{introducer_id}, #{parttime_name},#{location}, #{nu_of_people} ,#{phone} , #{salary} , 0 ,#{start_time} , #{end_time} )
+    </insert>
+
+
+    <update id="changeStudentStatus" parameterType="com.example.demo.pojo.ParttimePerson">
+        update stu_parttime
+        <set>
+            <if test="status==0">status =1</if>
+            <if test="status==1">status =0</if>
+        </set>
+       where stu_id=#{stu_id} and parttime_id=#{parttime_id}
+
+    </update>
+    <update id="cancelApplication" parameterType="com.example.demo.pojo.Parttime">
+        update parttime
+      set status = 2
+      where Id=#{Id}
+    </update>
+
+  </mapper>
+

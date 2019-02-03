@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Purple Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+
+<body>
+<!-- Nav tabs -->
+
+
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth">
+        <div class="row w-100">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left p-5">
+              <div class="brand-logo">
+                <img src="images/logo.svg">
+              </div>
+
+              <form class="pt-3" id="form2">
+                <div class="form-group">
+                  <h4>选择要注册的类型：</h4>
+                  <select name="type" class="form-control form-control-lg" id="exampleFormControlSelect2" onchange="Change()">
+                    <option value="1">介绍人注册</option>
+                    <option value="2">学生注册</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" name="username" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="用户账号">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control form-control-lg" id="exampleInputName" placeholder="用户姓名">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="position" class="form-control form-control-lg" id="exampleInputPosition" placeholder="用户职位">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="stu_nu" class="form-control form-control-lg" id="exampleInputStu_nu" placeholder="学生学号">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="ID_nu" class="form-control form-control-lg" id="exampleInputID1" placeholder="身份证号">
+                </div>
+
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="用户密码">
+                </div>
+                <div class="mb-4">
+                  <div class="form-check">
+                    <label class="form-check-label text-muted">
+                      <input type="checkbox" class="form-check-input">
+                      我同意这些条款
+                    </label>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn register_btn" >注册</a>
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  已经有一个账户？ <a href="login" class="text-primary">登陆</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $("#exampleInputStu_nu").hide()
+
+    function Change(){
+        if($("#exampleFormControlSelect2").val()=="1"){
+            $("#exampleInputStu_nu").hide();
+            $("#exampleInputName").show();
+            $("#exampleInputPosition").show();
+            $("#exampleInputID1").show()
+        }else {
+            $("#exampleInputID1").hide();
+            $("#exampleInputName").hide();
+            $("#exampleInputPosition").hide();
+            $("#exampleInputStu_nu").show()
+        }
+    }
+  $(document).ready(function () {
+    $(".register_btn").on("click",function () {
+        $.ajax({
+            type:"post",
+            url:"toRegister",
+            data:$("#form2").serialize(),
+            success:function (msg) {
+                if(msg=="login"){
+                    alert("注册成功，请登陆")
+                    window.location.href="login"
+                }else{
+                    alert(msg)
+                }
+
+            }
+        })
+
+    })
+
+
+  })
+
+</script>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/js/vendor.bundle.addons.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/misc.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>
