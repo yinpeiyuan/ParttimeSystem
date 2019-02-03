@@ -1,6 +1,6 @@
 # 兼职管理系统
 
-###技术选型
+### 技术选型
 
 - springboot +jquery +bootstrap
 
